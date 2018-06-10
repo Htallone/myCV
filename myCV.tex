@@ -1,0 +1,176 @@
+%%%% 参考了https://www.wondercv.com/的模板
+
+\documentclass[11pt]{article}
+
+% disable indent globally
+\setlength{\parindent}{0pt}
+% some general improvements, defines the XeTeX logo
+\usepackage{xltxtra}
+% use hyperlink for email and url
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{url}
+\urlstyle{tt}
+
+\usepackage{xcolor}
+%%%% 统一一种颜色，偏蓝色，用于section下划线和fontawesome，这颜色是从一个北航Logo上取的
+\definecolor{CVBlue}{RGB}{23,110,191}
+
+%%% \widthof[]{} 用于特殊对齐是用到
+\usepackage{calc}
+
+
+% loading fonts
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\CJKsetecglue{} %% 取消中文与数字之间间隙
+
+%%%%% 字体需要自己下载安装，注意版权问题，这两种字体应该比较好看，英文Helvetica，中文方正兰亭黑，也是有多种版本，自己试试哪些好看。参考了https://www.wondercv.com/的模板
+%%%%% windows系统好像需要先安装字体，之后下面语句就够了
+% Main document font
+% \setmainfont[
+%   BoldFont = HelveticaNeueLTPro-Md.otf ,
+% ]{HelveticaNeueLTPro-Roman.otf}
+% 
+% \setCJKmainfont[
+% BoldFont=Pro_GB18030 DemiBold.otf,
+% ]{Pro_GB18030.otf}
+
+%%%%% 字体需要自己下载安装，注意版权问题
+%%%%% linux系统只需要字体路径就行了，如下
+% % Main document font
+\setmainfont[
+    Path = Font/,
+  Extension = .otf ,
+  BoldFont = HelveticaNeueLTPro-Md.otf ,
+]{HelveticaNeueLTPro-Roman.otf}
+
+\setCJKmainfont[
+Path = Font/,
+  Extension = .otf ,
+BoldFont=Pro_GB18030 DemiBold.otf,
+]{Pro_GB18030.otf}
+
+%%%%% 定义更漂亮的“C++”，参考https://tex.stackexchange.com/questions/4302/prettiest-way-to-typeset-c-cplusplus 
+%%%%% 貌似跟具体字体大小有关，需要调下参数，我测试感觉下面的比较好看
+\usepackage{relsize}
+\usepackage{xspace}
+\protected\def\Cpp{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.28ex}{\relsize{-1}++}}\xspace} 
+
+% use fontawesome
+\usepackage{fontawesome}
+\newfontfamily{\FA}{[FontAwesome.otf]}
+
+\usepackage[
+	a4paper,
+	left=1.2cm,
+	right=1.2cm,
+	top=1.5cm,
+	bottom=1cm,
+	nohead
+]{geometry}
+
+\renewcommand{\baselinestretch}{1.2} %定义行间距1.2
+
+\usepackage{titlesec}
+\usepackage{enumitem}
+\setlist{noitemsep} % removes spacing from items but leaves space around the whole list
+%\setlist{nosep} % removes all vertical spacing within and around the list
+\setlist[itemize]{topsep=0.25em, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, leftmargin=*}
+
+
+
+\titleformat{\section}         % Customise the \section command 
+  {\large\bfseries\raggedright} % Make the \section headers large (\Large),
+                               % small capitals (\scshape) and left aligned (\raggedright)
+  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
+  {}                           % Can be used to insert code before the heading
+  [{\color{CVBlue}\titlerule}]                 % Inserts a horizontal line after the heading
+\titlespacing*{\section}{0cm}{*1.6}{*1.2}
+
+
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\centerline{\LARGE\bfseries{高富帅}}
+
+\centerline{\normalsize{应届博士生，研究方向：飞行力学、制导与控制、弹道优化、拦截仿真}}
+
+\centerline{\normalsize{\faPhone\ 158-8888-8888 \quad \faEnvelopeO\ \href{mailto:Htallone@buaa.edu.cn}{Htallone@buaa.edu.cn}}}
+%   \vspace{1.5ex}
+ 
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\  教育背景}
+
+\textbf{北京航空航天大学} \hfill 2011年 -- \makebox[\widthof{2011年}][s]{现在}
+
+博士研究生\quad 飞行器设计，硕博连读，预计2019年3月毕业
+
+\textbf{北京航空航天大学} \hfill 2008年 -- 2011年
+
+理学学士第二学位\quad 应用数学
+
+\textbf{北京航空航天大学} \hfill 2007年 -- 2011年
+
+工学学士学位\quad 飞行器设计与工程（航天工程）
+
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faUsers}\ 项目经历}
+
+\textbf{黑科技公司}\  \hfill 2015年3月 -- 2015年5月
+
+实习\quad 经理: 高富帅 \hfill 北京
+
+xxx后端开发
+\begin{itemize}
+  \item 实现了 xxx 特性
+  \item 后台资源占用率减少8\%
+  \item xxx
+\end{itemize}
+
+\textbf{六自由度拦截弹攻防对抗模型\Cpp}\  \hfill 2015年3月 -- 2015年5月
+
+实习\quad 经理: 高富帅  \hfill 武汉
+
+xxx后端开发\Cpp
+\begin{itemize}
+  \item 实现了 xxx 特性
+  \item 后台资源占用率减少8\%
+  \item xxx
+\end{itemize}
+
+\textbf{高富帅是真的吗？}\  \hfill 2015年3月 -- 2015年5月
+
+自由探索  \hfill 瓦房店
+
+高富帅需要简历？哪个高富帅学这个专业？怕不是个傻子吧！
+\begin{itemize}
+  \item 实现了 xxx 特性，哪个高富帅学这个专业？怕不是个傻子吧！哪个高富帅学这个专业？怕不是个傻子吧！哪个高富帅学这个专业？怕不是个傻子吧！
+  \item 后台资源占用率减少8\%
+\end{itemize}
+
+
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faCogs}\ IT 技能}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item 编程语言: C == Python > \Cpp > Java
+  \item 平台: Linux
+  \item 开发: 英语六级，博士期间阅读了大量专业英文文献、开源项目英文文档等。
+\end{itemize}
+
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faHeart}\ 获奖情况}
+第一名, xxx 比赛 \hfill 2013年6月
+
+其他奖项 \hfill 2015
+
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faInfo}\ 其他}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item 技术博客: http://blog.yours.me
+  \item GitHub: https://github.com/username
+  \item 语言: 英语 - 熟练(TOEFL xxx)
+\end{itemize}
+
+%%%% 如果多页简历，可以手动在适当位置插入 \newpage 或者 \clearpage 开始新一页
+
+\end{document}
